@@ -1,0 +1,595 @@
+/*
+    MDE default style
+    Format support:less, regular css
+    Author:chenxianming
+*/
+
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline;font-style:normal}b,h1,h2,h3,h4,h5,h6{font:inherit}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}*{margin:0;padding:0}
+
+em,i{ font-style:italic; }
+
+@mainColor: #3d3d3d;
+@subColor: #515151;
+@lightColor: #c6c6c6;
+@white: #ffffff;
+@gray: #d8d8d8;
+@borderGray: #c4c4c4;
+@bgColor: #f5f5f5;
+@lightGray: #ececec;
+
+.flexDisplay(){
+    display: flex;
+}
+
+html{
+    font-family: "brelaregular";
+}
+
+.btn{
+    cursor: pointer;
+}
+
+.btn:active{
+    transform: translate3d(0, 2px, 0);
+}
+
+span{
+    margin-top:-4px;
+}
+
+body,
+html,
+.App,
+#root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative
+}
+
+.logo,
+.icon {
+    transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.Topbar {
+    background: @mainColor;
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    .flexDisplay();
+}
+
+.logo {
+    width: 120px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    .flexDisplay();
+}
+
+.logo:hover {
+    background: @subColor;
+}
+
+.TopbarLeft {
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    .flexDisplay();
+}
+
+.MenuGroup {
+    align-items: flex-start;
+    justify-content: center;
+    .flexDisplay();
+}
+
+.MenuGroup:after {
+    content: ' ';
+    border: .5px solid #4b4b4b;
+    height: 60px;
+    margin: 0 5px;
+}
+
+.MenuGroup.unline:after {
+    display: none;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: @lightColor;
+    .flexDisplay();
+}
+
+.icon:hover,
+.icon.active {
+    background: @subColor;
+    color: @white;
+}
+
+.Container {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    background: @bgColor;
+    .flexDisplay();
+}
+
+.CodeEditor,
+.CodePreview {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.CodeEditor {
+    background: @white;
+}
+
+.CodePreview {
+    background: @bgColor;
+}
+
+.editor {
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    right: 10px;
+    bottom: 10px;
+    overflow: hidden;
+    outline: 0;
+    line-height: 24px;
+}
+
+.scroll {
+    width: 100%;
+    height: 100%;
+}
+
+.CodeLine {
+    position: absolute;
+    width: 50px;
+    border-right: 1px solid #ebebeb;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: @bgColor;
+    z-index: 99;
+}
+
+.CodeEditor:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    width: calc(~'2% + 29px');
+    background: #f7f7f7;
+    border-right: 1px solid #ddd;
+    left: 0;
+    height: 100%;
+    z-index: 0;
+}
+
+body .CodeMirror {
+    z-index: 1;
+}
+
+.CodeMirror-gutter {
+    z-index: 99;
+}
+
+.markdown-body {
+    padding: 40px;
+}
+
+.CodeMirror {
+    margin: 0 auto;
+    line-height: 24px;
+    font-size: 14px;
+    position: relative;
+}
+
+.Drawer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 99;
+    visibility: hidden;
+}
+
+.Drawer.active{
+    visibility: visible;
+}
+
+.Drawer.active .DrawerMask{
+    opacity: .6;
+}
+
+.Drawer.active .DrawerMenu{
+    transform: translate3d(0%, 0, 0);
+}
+
+.DrawerMask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    background: @mainColor;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.DrawerMenu{
+    width: 305px;
+    height: 100%;
+    background: @white;
+    position: absolute;
+    top:0;
+    left: 0;
+    transform: translate3d(-100%, 0, 0);
+    transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.DrawerNew{
+    padding: 0 10px;
+    height: 50px;
+    width: 285px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 10px;
+    background: @gray;
+    .flexDisplay();
+}
+
+.DrawerNew span{
+    font-size: 14px;
+}
+
+.NewDoc{
+    width: 80px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    background: @mainColor;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    color: @lightColor;
+    .flexDisplay();
+}
+
+.NewDoc i{
+    margin-right: 5px;
+}
+
+.DocList:after{
+    content: ' ';
+    height: 10px;
+    width: 100%;
+    display: block;
+}
+
+.DocListItem{
+    font-size: 14px;
+    padding: 0 20px;
+    line-height: 39px;
+    height: 39px;
+    border-bottom: 1px solid @borderGray;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    cursor: default;
+}
+
+.DocListItem span{
+    width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.DocListItem:hover,
+.DocListItem.active{
+    background: @bgColor;
+}
+
+.DocListItemActions{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.DocListItemAction{
+    margin-left: 15px;
+}
+
+.BIconWrap{
+    bottom: 20px;
+    right: 20px;
+    position: absolute;
+    z-index: 1;
+    height: 35px;
+    display: flex;
+}
+
+.BIcon{
+    width: 35px;
+    height: 35px;
+    background: @subColor;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    color: @white;
+}
+
+.Dialog{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.DialogMask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: ' ';
+    background: @mainColor;
+    opacity: .6;
+    cursor: pointer;
+}
+
+.DialogContent{
+    width: 500px;
+    max-height: 500px;
+    background: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -250px 0 0 -250px;
+    border-radius: 5px;
+    overflow: hidden;
+    min-height: 150px;
+}
+
+.checkBtn{
+    width: 100%;
+    height: 45px;
+    background: #eee;
+}
+
+.close{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+
+.Dialog{
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.Dialog.active{
+    opacity:1;
+    visibility: visible;
+}
+
+.DialogTitle{
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.DialogDescription{
+    line-height: 24px;
+    color: @mainColor;
+    opacity: .7;
+    padding: 0 20px;
+    font-size: 14px;
+}
+
+.DialogActions{
+    padding: 20px;
+}
+
+.checkBtn{
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: @lightGray;
+}
+
+.checkBtn.sure{
+    background: @mainColor;
+    color: @white;
+}
+
+.checkBtn{
+    margin-bottom: 10px;
+}
+
+.checkBtn:last-child{ margin-bottom: 0; }
+
+.InputWrap{
+    border: 2px solid @gray;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.InputWrap.hor{
+    display:inline-block;
+    width: 200px;
+}
+
+.InputWrap.hor:nth-child(1){ margin-right: 10px; }
+
+.codeWrap{
+    height: 200px;
+    margin-bottom: 10px;
+    border: 2px solid @gray;
+    padding: 0;
+}
+
+.Input{
+    margin: 0;
+    height: 15px;
+    line-height: 15px;
+    outline: 0;
+    width: 100%;
+    border: none;
+}
+
+.Textarea{
+    margin: 0;
+    height: auto;
+    min-height: 180px;
+    line-height: 15px;
+    outline: 0;
+    width: 100%;
+    border: none;
+    resize: none;
+}
+
+.codeWrap{
+    position:relative;
+}
+.codeWrap .CodeMirror{ margin:0; }
+.codeWrap:after{
+    content: ' ';
+    position: absolute;
+    top: 0;
+    width: 29px;
+    background: #f7f7f7;
+    border-right: 1px solid #ddd;
+    left: 0;
+    height: 100%;
+    z-index: 0;
+}
+
+/*
+    responsive settings
+*/
+
+
+.scale( @scale ){
+    height:calc(~'60px' * @scale);
+}
+
+.scaleI( @scale ){
+    width:calc(~'60px' * @scale);
+    height:calc(~'60px' * @scale);
+}
+
+.transTop( @scale ){
+    top:calc(~'60px' * @scale);
+}
+
+@media screen and (max-width: 1130px) {
+    .Topbar,
+    .logo{
+        .scale( .9 );
+    }
+    .icon{
+        .scaleI( .9 );
+    }
+    .Container{
+        .transTop( .9 );
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .Topbar,
+    .logo{
+        .scale( .85 );
+    }
+    .icon{
+        .scaleI( .85 );
+    }
+    .Container{
+        .transTop( .85 );
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .Topbar,
+    .logo{
+        .scale( .8 );
+    }
+    .icon{
+        .scaleI( .8 );
+    }
+    .Container{
+        .transTop( .8 );
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Topbar,
+    .logo{
+        .scale( .75 );
+    }
+    .icon{
+        .scaleI( .75 );
+    }
+    .Container{
+        .transTop( .75 );
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .Topbar,
+    .logo{
+        .scale( .7 );
+    }
+    .icon{
+        .scaleI( .7 );
+    }
+    .Container{
+        .transTop( .7 );
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .Topbar,
+    .logo{
+        .scale( .6 );
+    }
+    .icon{
+        .scaleI( .6 );
+    }
+    .Container{
+        .transTop( .6 );
+    }
+}
