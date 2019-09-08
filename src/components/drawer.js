@@ -3,6 +3,8 @@ import Icon from './icons';
 
 import { Scrollbars } from 'react-custom-scrollbars';
 
+import localSync from '../utils/localsync';
+
 class NewDoc extends React.Component{
     constructor(props) {
         super(props);
@@ -39,7 +41,6 @@ class DocListItem extends React.Component{
     }
     
     rename( id ){
-        
         let tar;
         
         global.DocList.state.list.forEach( ( doc ) => ( ( doc.id === id ) && ( tar = doc ) ) );
@@ -61,7 +62,6 @@ class DocListItem extends React.Component{
     }
     
     render(){
-        
         if( !this.state.title ){
             return ;
         }
@@ -101,10 +101,22 @@ class DocList extends React.Component{
     
     componentDidMount(){
         global.DocList = this;
+        
+        let list = localSync.get(),
+            self = this;
+        
+        this.setState({
+            list: []
+        });
+        
+        setTimeout( () => {
+            self.setState({
+                list: list
+            });
+        }, 1 );
     }
     
     newDoc(){
-        
         let defaultCode = '## Markdown code here';
         
         let list = this.state.list || [],
@@ -131,6 +143,8 @@ class DocList extends React.Component{
         this.setState({
             list:list
         });
+        
+        localSync.set( list );
         
         if( !global.Editor ){
             return ;

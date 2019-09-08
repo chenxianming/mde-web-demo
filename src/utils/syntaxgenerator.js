@@ -165,9 +165,9 @@ const events = {
             title:'About MDE',
             description:`
 <p>
-    MED = Mark Down Extract, that means it’s be simple and easy to use.<br />
+    MED = Mark Down Extract, that means will be simple and easy to use.<br />
     MED across Desktop / Web / App platform.<br />
-    The editor core can be embed to your project or replace your WYWG editor.<br />
+    The editor core can be embed to your project or replace your WYGWYSI editor.<br />
     Also, MED is a opensource  and reposition on GITHUB.
 </p>
 <p>

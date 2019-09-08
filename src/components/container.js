@@ -11,6 +11,8 @@ import CodeMirror from '@uiw/react-codemirror';
 
 import 'codemirror/addon/selection/active-line';
 
+import localSync from '../utils/localsync';
+
 const __CONFIG = require('../config');
 
 let scrollTimmer = null,
@@ -30,8 +32,13 @@ import('../config.json').then( ( config ) => {
             return ;
         }
         
+        let list = localSync.get(),
+            currentIdx = -1;
+        
+        list.forEach( ( item, idx ) => ( ( item.active ) && ( currentIdx = idx ) ) );
+        
         global.Editor.setState({
-            code:json.markdownPreview.join('\n')
+            code:list[ currentIdx ] ? list[ currentIdx ].content : json.markdownPreview.join('\n')
         });
         
     } );
@@ -128,6 +135,7 @@ class CodeEditor extends React.Component{
             list:lists
         });
         
+        localSync.set( lists );
     }
     
     scroll( target ){
