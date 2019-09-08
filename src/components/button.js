@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from './icons';
 
-import events from '../utils/sytaxgenerator.js';
+import events from '../utils/syntaxgenerator.js';
 
 class MenuBtn extends React.Component {
     constructor(props) {
