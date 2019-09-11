@@ -1,7 +1,7 @@
 {
     "themeName":"Resove to the src themes path",
     "theme":"default",
-    "EditordefaultView":"3 kind of mode as split, code, view, default is split",
+    "EditordefaultView":"3 kind of mode as split, code, preview, default is split",
     "defaultView":"split",
     "result:event":"The event icon at the preview page right bottom, set 'download' that you can save as html file, and if configure 'export', page will call the window.getResult functon for return html source code as 'window.export'",
     "result:options":"download, export",
