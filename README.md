@@ -37,11 +37,15 @@ npm run build
 ``` 
 
 
-Asset path generator to ProjectPath/buld/, you can upload directory to any static server for use HTML5 specify.
+Generation asset path to ProjectPath/buld/, you can upload directory to any static server for use HTML5 specify.
 
 ## Development & themes redesign
 
-Make theme directory in src/themes, edit src/config.json, replace theme value to your theme pathname
+1. Make theme directory in src/themes.
+2. Edit src/config.json
+3. Rplace theme value to your theme pathname
+4. Enjoy development
+
 
 #### Eject webpack project
 

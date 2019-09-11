@@ -165,10 +165,10 @@ const events = {
             title:'About MDE',
             description:`
 <p>
-    MED = Mark Down Extract, that means will be simple and easy to use.<br />
-    MED across Desktop / Web / App platform.<br />
+    MDE = Mark Down Extract, that means will be simple and easy to use.<br />
+    MDE across Desktop / Web / App platform.<br />
     The editor core can be embed to your project or replace your WYGWYSI editor.<br />
-    Also, MED is a opensource  and reposition on GITHUB.
+    Also, MDE is a opensource  and reposition on GITHUB.
 </p>
 <p>
     <h5 style="margin-top:10px;margin-bottom:5px;"><b style="font-weight:700;font-size:14px;">Tech stack</b></h5>
@@ -176,7 +176,7 @@ const events = {
 </p>
 <p>
     <h5 style="margin-top:10px;margin-bottom:5px;"><b style="font-weight:700;font-size:14px;">More</b></h5>
-    <b style="font-weight:500;font-size:12px;margin-right:10px">MarkDown syntax</b><b style="font-weight:500;font-size:12px;margin-right:10px">MED for Desktop</b><b style="font-weight:500;font-size:12px;margin-right:10px">MED for Android</b>
+    <b style="font-weight:500;font-size:12px;margin-right:10px">MarkDown syntax</b><b style="font-weight:500;font-size:12px;margin-right:10px">MDE for Desktop</b><b style="font-weight:500;font-size:12px;margin-right:10px">MDE for Android</b>
     <br />
     <br />
 </p>

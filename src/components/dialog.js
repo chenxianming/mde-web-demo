@@ -3,8 +3,6 @@ import Icon from './icons';
 import Input from './input';
 import Textarea from './textarea';
 
-import localSync from '../utils/localsync';
-
 let cacheComponent = [],
     cacheTextarea = null;
 
@@ -48,7 +46,6 @@ class Dialog extends React.Component {
     }
     
     close(){
-        
         this.setState({
             isOpen:false,
             inputs:[]
@@ -82,7 +79,6 @@ class Dialog extends React.Component {
             global.DocList.setState({
                 list:listNew
             });
-            localSync.set( listNew );
         }, 1 );
         
         setTimeout( () => {
@@ -115,9 +111,7 @@ class Dialog extends React.Component {
             global.DocList.setState({
                 list:lists
             });
-            localSync.set( lists );
         }, 1 );
-        
     }
     
     onChange( e, idx ){

@@ -7,9 +7,9 @@ let object = {
         let list = localStorage.getItem('list');
         
         try{
-            return JSON.parse( list );
+            return JSON.parse( list || [] );
         }catch(e){
-            return list;
+            return [];
         }
     }
 }

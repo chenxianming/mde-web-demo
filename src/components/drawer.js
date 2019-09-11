@@ -23,7 +23,6 @@ class NewDoc extends React.Component{
             <div onClick={ this.newDoc } className="NewDoc btn"><Icon icon={ 'icon-icon_tianjia' } size={ 15 } /><span>New</span></div>
         );
     }
-    
 }
 
 class DocListItem extends React.Component{
@@ -102,18 +101,23 @@ class DocList extends React.Component{
     componentDidMount(){
         global.DocList = this;
         
-        let list = localSync.get(),
-            self = this;
+        let self = this;
         
-        this.setState({
-            list: []
+        let list = localSync.get();
+        
+        if( !list.length ){
+            return ;
+        }
+        
+        self.setState({
+            list:[]
         });
         
         setTimeout( () => {
             self.setState({
                 list: list
             });
-        }, 1 );
+        }, 50 );
     }
     
     newDoc(){
@@ -143,8 +147,6 @@ class DocList extends React.Component{
         this.setState({
             list:list
         });
-        
-        localSync.set( list );
         
         if( !global.Editor ){
             return ;

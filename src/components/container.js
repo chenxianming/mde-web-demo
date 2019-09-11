@@ -20,6 +20,17 @@ let scrollTimmer = null,
 
 let markdownTheme;
 
+const syncLocalstorge = () => {
+    
+    if( !global.DocList ){
+        return ;
+    }
+    
+    let list = global.DocList.state.list || [];
+    
+    localSync.set( list );
+}
+
 import(`../themes/${ __CONFIG.theme }/markdown/markdown.min`).then( ( json ) => {
     markdownTheme = json;
 } );
@@ -36,10 +47,15 @@ import('../config.json').then( ( config ) => {
             currentIdx = -1;
         
         list.forEach( ( item, idx ) => ( ( item.active ) && ( currentIdx = idx ) ) );
-        
+
         global.Editor.setState({
-            code:list[ currentIdx ] ? list[ currentIdx ].content : json.markdownPreview.join('\n')
+            code:list[ currentIdx ] ? list[ currentIdx ].content : json.markdownPreview.join('\n'),
+            id:list[ currentIdx ] ? list[ currentIdx ].id : 0
         });
+        
+        setTimeout( () => {
+            setInterval( syncLocalstorge, 1 );
+        }, 1000 );
         
     } );
     
@@ -88,7 +104,6 @@ class CodeEditor extends React.Component{
         this.onScroll = this.onScroll.bind( this );
         this.setFullScreen = this.setFullScreen.bind( this );
         this.update = this.update.bind( this );
-        
     }
     
     componentDidMount(){
@@ -135,7 +150,6 @@ class CodeEditor extends React.Component{
             list:lists
         });
         
-        localSync.set( lists );
     }
     
     scroll( target ){

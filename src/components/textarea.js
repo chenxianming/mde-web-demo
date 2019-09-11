@@ -17,7 +17,6 @@ class Textarea extends React.Component{
     }
     
     componentDidMount(){
-        
         let codemirrorObj = this.refs.insertCode;
         
         codemirrorObj.editor.on('change', this.update);
@@ -32,13 +31,11 @@ class Textarea extends React.Component{
     }
     
     update() {
-        
         let code = this.getCode();
         
         this.setState({
             code:code
         });
-        
     }
     
     render(){
