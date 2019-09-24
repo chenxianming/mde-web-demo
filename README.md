@@ -6,6 +6,10 @@ Markdown editor across Desktop / Web / App platform.
 
 [mde.coldnoir.com](http://mde.coldnoir.com "mde.coldnoir.com")
 
+Software download
+
+[https://github.com/chenxianming/mde-editor-desktop/releases](https://github.com/chenxianming/mde-editor-desktop/releases "https://github.com/chenxianming/mde-editor-desktop/releases")
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Installation
