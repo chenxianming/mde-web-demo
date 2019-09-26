@@ -59,9 +59,16 @@ npm run eject
 
 
 ## Other platform 
-building
+
+[Desktop](https://github.com/chenxianming/mde-editor-desktop "Desktop")
+
+[PC embed](https://github.com/chenxianming/mde-web-embed-pc "PC embed")
+
+[Mobile embed](https://github.com/chenxianming/mde-web-embed-mobile "Mobile embed")
+
+[Desktop release](https://github.com/chenxianming/mde-editor-desktop/releases "Desktop release")
+
 
 ## Creadit
-
 
 [www.coldnoir.com](http://www.coldnoir.com "www.coldnoir.com")
