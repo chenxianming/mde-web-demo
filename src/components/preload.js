@@ -10,6 +10,9 @@ class Preload extends React.Component {
     
     componentDidMount(){
         global.Preload = this;
+        
+        // remove preload mask when layout was prepeared
+        setTimeout( global.Preload.close.bind( global.Preload ), 300 );
     }
     
     close(){
