@@ -23,6 +23,14 @@ git clone https://github.com/chenxianming/mde-web-demo.git
 npm install
 ``` 
 
+### ReactJS environment
+- make sure your webpack environment run this code without any throuble.
+
+```
+$ npx run create-react my-project
+$ cd my-project && npm start
+```
+
 ## Run
 
 ``` 
