@@ -31,6 +31,8 @@ $ npx run create-react my-project
 $ cd my-project && npm start
 ```
 
+- the react updated gen every weeks, if ur wepack version was difference, try to delete wepack, webpack-dev-server ( but i don't think it was healthly for another one, kown effects, u need reinstalled webpack then running on other project. )
+
 ## Run
 
 ``` 
